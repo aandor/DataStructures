@@ -74,12 +74,11 @@ uf.union("A", "B")
 uf.union("C", "D")
 
 # Check if elements are in the same set and other utility methods
-print(uf.is_same_set("A", "B"))  # Should return True
-print(uf.is_same_set("A", "C"))  # Should return False
-print(uf.size_of_set("A"))  # Should return 2
-print(uf.elements_of_set("A"))  # Should return ['apple', 'B']
-
+assert uf.is_same_set("A", "B") == True  # Should return True
+assert uf.is_same_set("A", "C") == False  # Should return False
+assert uf.size_of_set("A") == 2  # Should return 2
+assert uf.elements_of_set("A") == ['A', 'B']  # Should return ['A', 'B']
 uf.reset()
+assert uf.is_same_set("A", "B") == False  # Should return False (since we reset)
 
-print(uf.is_same_set("A", "B"))  # Should return False (since we reset)
 print("All test cases passed!")
