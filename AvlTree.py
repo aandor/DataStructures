@@ -39,14 +39,14 @@ class AVLTree:
         balance_factor = self._get_balance(node)
 
         if balance_factor > 1:
-            if value < node.left.value:
+            if self._get_balance(node.left) >= 0:  # Replacing value with the balance factor
                 return self._right_rotate(node)
             else:
                 node.left = self._left_rotate(node.left)
                 return self._right_rotate(node)
 
         if balance_factor < -1:
-            if value > node.right.value:
+            if self._get_balance(node.right) <= 0:  # Replacing value with the balance factor
                 return self._left_rotate(node)
             else:
                 node.right = self._right_rotate(node.right)
@@ -176,4 +176,4 @@ assert avl.preorder_traversal() == [5, 2, 1, 3, 8]
 # Test post-order traversal
 assert avl.postorder_traversal() == [1, 3, 2, 8, 5]
 
-print("All test cases passed!")
+print("All test cases passed!!!")
